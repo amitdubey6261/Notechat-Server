@@ -1,6 +1,10 @@
-const mongoose = require('mongoose'); 
+const mongoose = require('mongoose');
 
-const cartModel = mongoose.model({
+const cartModel = mongoose.Schema({
+    userid : {
+        type : String , 
+        required : true , 
+    } , 
     productid : {
         type : String , 
         required : [ true , 'Product Id not specified'] , 
@@ -21,9 +25,10 @@ const cartModel = mongoose.model({
     }
     ,
     type : {
-        type : Number , 
+        type : String , 
+        default : 'notes' , 
         required : [ true , 'Product Id not specified'] , 
     }
 })
 
-module.exports = mongoose.Schema('Cart' , cartModel) ; 
+module.exports = mongoose.model('Cart' , cartModel) ; 

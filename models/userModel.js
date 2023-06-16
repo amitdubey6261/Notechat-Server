@@ -77,6 +77,14 @@ const userSchema = new mongoose.Schema({
         minLength: [4, 'Your collage name should have altleast 4 characters'],
         maxLength: [30, 'Your collage name should not be more than 40 characters'],
     },
+    unlockedProducts : [
+        {
+            productid : {
+                type : String , 
+            }
+        }
+    ]
+    ,
     resetPasswordToken: String,
     resetPasswordExpire: Date,
 })

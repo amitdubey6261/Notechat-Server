@@ -33,11 +33,15 @@ const user = require('./routes/userRoute');
 const notes = require('./routes/notesRoutes');
 const payments = require('./routes/paymentRoute');
 const email = require('./routes/emailRoutes');
+const cart = require('./routes/cartRoutes');
+const unlock = require('./routes/unlockNotesRoutes');
 
 app.use('/api/v1' , payments );
 app.use('/api/v1' , user );
 app.use('/api/v1' , notes);
 app.use('/api/v1' , email );
+app.use('/api/v1' , cart );
+app.use('/api/v1' , unlock);
 
 app.use(errorMiddleware);
 
