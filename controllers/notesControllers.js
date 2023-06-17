@@ -5,7 +5,6 @@ const cloudinary = require('../utils/Cloudinary.js');
 const ApiFeatures = require("../utils/ApiFeatures");
 
 exports.createNotes = catchAsyncError(async (req, res, next) => {
-    console.log("createnotes");
 
     const {
         name,

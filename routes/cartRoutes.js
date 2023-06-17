@@ -3,7 +3,7 @@ const { insertInCart, getAllinCart, deleteFromCart } = require('../controllers/c
 const router = express.Router() ; 
 
 router.route('/cart/insert').post(insertInCart) ; 
-router.route('/cart/getAll').get( getAllinCart) ; 
-router.route('/cart/delete/:id').delete(deleteFromCart);
+router.route('/cart/getAll/:uid').get( getAllinCart) ; 
+router.route('/cart/delete/:uid/:pid').delete(deleteFromCart);
 
 module.exports = router ; 

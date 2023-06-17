@@ -14,11 +14,11 @@ dotenv.config({path:'./config/config.env'});
 app.use(cookieparser());
 
 app.use(express.json({
-    limit : '500mb'
+    limit : '2gb'
 }));
 
 app.use(express.urlencoded({
-    limit : '500mb',
+    limit : '2gb',
     extended : true 
 }))
 

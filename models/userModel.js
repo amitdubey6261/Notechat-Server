@@ -85,6 +85,30 @@ const userSchema = new mongoose.Schema({
         }
     ]
     ,
+    productsInCart : [
+        {
+            productid : {
+                type : String , 
+            }
+            , 
+            price : {
+                type : String , 
+            }
+            ,
+            subject : {
+                type : String , 
+            }
+            ,
+            collage : {
+                type : String , 
+            }
+            ,
+            rating : {
+                type : String , 
+            }
+        }
+    ]
+    ,
     resetPasswordToken: String,
     resetPasswordExpire: Date,
 })
