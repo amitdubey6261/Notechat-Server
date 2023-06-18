@@ -230,19 +230,18 @@ exports.updateUser = catchAsyncError(async (req, res, next) => {
         return next(new ErrorHandler(`User not found`, 404));
     }
 
-    await User.findByIdAndUpdate(req.params.id, req.body, {
+    const updatedUser = await User.findByIdAndUpdate(req.params.id, req.body, {
         new: true,
         runValidators: true,
     });
 
     res.status(201).json({
         success: true,
-        user,
+        updatedUser,
     });
 });
 
 exports.deleteUser = catchAsyncError(async (req, res, next) => {
-    console.log("delete user call");
 
     const user = await User.findById(req.params.id);
 

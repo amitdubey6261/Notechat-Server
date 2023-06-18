@@ -8,11 +8,9 @@ const userSchema = new mongoose.Schema({
     image: {
         publicid: {
             type: String, 
-            required : true , 
         },
         url: {
             type: String,
-            required : true , 
             validate: [validator.isURL, 'Enter correct url'] , 
         }
     },
