@@ -5,7 +5,6 @@ const ErrorHandler = require('../utils/ErrorHandler');
 
 exports.isAuthenticatedUser = catchAsyncError(async (req, res, next) => {
     const { token } = req.cookies;
-    console.log(`gathered token is : ${token}`);
     if (!token) {
         return next(new ErrorHandler(`Please Login to access this resource `));
     }

@@ -31,8 +31,6 @@ exports.createUser = catchAsyncError(async (req, res, next) => {
             crop: "scale",
         });
 
-        console.log(imgres.public_id);
-
         payload.name = name;
         payload.email = email;
         payload.password = password;
@@ -65,7 +63,6 @@ exports.createUser = catchAsyncError(async (req, res, next) => {
         });
 
     } catch (e) {
-        console.log(e);
         return next(new ErrorHandler("Image upload failed", 404));
     }
 });
@@ -119,8 +116,6 @@ exports.forgotPassword = catchAsyncError(async (req, res, next) => {
 
     const resetToken = user.getResetPasswordToken();
 
-    console.log(" reset password token ", resetToken);
-
     await user.save({ validateBeforeSave: false });
 
     const resetPasswordUrl = `${req.protocol}://${req.get(
@@ -171,8 +166,6 @@ exports.resetPassword = catchAsyncError(async (req, res, next) => {
         );
     }
 
-    console.log(user);
-
     const token = user.getJWTToken();
 
     if (password != confirmPassword) {
@@ -222,7 +215,6 @@ exports.userDetails = catchAsyncError(async (req, res, next) => {
 });
 
 exports.updateUser = catchAsyncError(async (req, res, next) => {
-    console.log("update user call");
 
     const user = await User.findById(req.params.id);
 

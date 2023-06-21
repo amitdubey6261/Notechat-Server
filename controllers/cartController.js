@@ -37,8 +37,6 @@ exports.insertInCart = catchAsyncError(async( req , res , next)=>{
             throw new Error( 'Product already in cart ') ; 
         }
 
-        console.log( productsInCart ); 
-
         const updatedUser = await User.findByIdAndUpdate( uid , {
             productsInCart , 
         } , {

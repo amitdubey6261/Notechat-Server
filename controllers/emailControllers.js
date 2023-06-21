@@ -27,8 +27,6 @@ exports.createEmail = catchAsyncError(async(req , res , next)=>{
 })
 
 exports.getAllEmails = catchAsyncError(async(req , res , next)=>{
-
-    console.log( `get all emails `)
     res.status(201).json({
         success : true,  
     })

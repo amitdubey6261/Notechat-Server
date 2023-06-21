@@ -38,7 +38,6 @@ exports.paymentVerification = catchAsyncError( async( req , res, next )=>{
             const newunlockedProducts = [...unlockedProducts] ; 
             
             productsInCart.map((elem , idx)=>newunlockedProducts.push({productid : elem.productid }));
-            console.log( productsInCart  , unlockedProducts , newProductsInCart , newunlockedProducts );
 
             await User.findByIdAndUpdate( userId , {
                 productsInCart : [], 
@@ -52,8 +51,6 @@ exports.paymentVerification = catchAsyncError( async( req , res, next )=>{
                 razorpay_payment_id : req.body.razorpay_payment_id , 
                 razorpay_signature : req.body.razorpay_signature
             })
-
-            console.log( order ) ; 
 
             res.send('<h1> Payment successfull ! Access orders page to access your resourcs </h1> ')
         }

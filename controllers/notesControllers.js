@@ -53,20 +53,15 @@ exports.createNotes = catchAsyncError(async (req, res, next) => {
 
     //file uplaod 
     try{
-        console.log(file)
         const fileres = await cloudinary.uploader.upload( file , {
             folder : 'pdfs' , 
         } )
 
-        console.log( fileres )
-
         filePayload.url = fileres.url ;
         filePayload.publicid = fileres.public_id ; 
 
-        console.log( 'file upload ') ; 
     }
     catch(e){
-        console.log(e)
         return next( new ErrorHandler( e.message , 500 ));
     }  
 
@@ -82,7 +77,6 @@ exports.createNotes = catchAsyncError(async (req, res, next) => {
         thum1.publicid = thumb1res.public_id ; 
         thum1.url = thumb1res.url ; 
         
-        console.log( 'th1' , thumb1res );
     }   
     catch(e){
         return next( new ErrorHandler( e.message , 500 ));
@@ -99,7 +93,6 @@ exports.createNotes = catchAsyncError(async (req, res, next) => {
         thum2.publicid = thumb2res.public_id ; 
         thum2.url = thumb2res.url ; 
 
-        console.log( 't2' , thumb2res );
     }   
     catch(e){
         return next( new ErrorHandler( e.message , 500 ));
@@ -116,7 +109,6 @@ exports.createNotes = catchAsyncError(async (req, res, next) => {
         thum3.publicid = thumb3res.public_id ; 
         thum3.url = thumb3res.url ; 
 
-        console.log( 't3' , thumb3res );
     }   
     catch(e){
         return next( new ErrorHandler( e.message , 500 ));
@@ -132,7 +124,6 @@ exports.createNotes = catchAsyncError(async (req, res, next) => {
         thum4.publicid = thumb4res.public_id ; 
         thum4.url = thumb4res.url ; 
 
-        console.log( 't4' , thumb4res );
     }   
     catch(e){
         return next( new ErrorHandler( e.message , 500 ));
@@ -165,7 +156,6 @@ exports.getAllNotes = catchAsyncError(async (req, res, next) => {
 });
 
 exports.getNotesDetails = catchAsyncError(async (req, res, next) => {
-    console.log("notesDeatils");
 
     const notes = await Notes.findById(req.params.id);
 
@@ -180,7 +170,6 @@ exports.getNotesDetails = catchAsyncError(async (req, res, next) => {
 });
 
 exports.deleteNotes = catchAsyncError(async (req, res, next) => {
-    console.log("deleteNotes");
 
     const notes = Notes.findById(req.params.id);
 
