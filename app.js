@@ -43,6 +43,14 @@ app.use('/api/v1' , email );
 app.use('/api/v1' , cart );
 app.use('/api/v1' , unlock);
 
+app.use(express.static(path.join(__dirname,"../Notechat-Client/dist")));
+
+//for making 1 uri
+app.get("*" , (req,res)=>{
+    res.sendFile(path.resolve(__dirname,"../Notechat-Client/dist/index.html"))
+})
+
+
 app.use(errorMiddleware);
 
 module.exports = app ; 
